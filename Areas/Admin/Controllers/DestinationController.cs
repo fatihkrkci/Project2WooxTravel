@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Project2WooxTravel.Areas.Admin.Controllers
 {
+    [Authorize]
     public class DestinationController : Controller
     {
         TravelContext context = new TravelContext();
