@@ -26,7 +26,7 @@ namespace Project2WooxTravel.Controllers
             if (values != null)
             {
                 FormsAuthentication.SetAuthCookie(values.Username, false);
-                Session["x"] = values.Username;
+                Session["user"] = values.Username;
                 return RedirectToAction("Index", "Profile", new { area = "Admin" });
             }
             else
