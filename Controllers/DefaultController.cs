@@ -1,4 +1,5 @@
 ﻿using Project2WooxTravel.Context;
+using Project2WooxTravel.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,13 +34,45 @@ namespace Project2WooxTravel.Controllers
 
         public PartialViewResult PartialBanner()
         {
+            var last4Destination = context.Destinations.OrderByDescending(d => d.DestinationId).Take(4).ToList();
+            return PartialView(last4Destination);
+        }
+
+        public PartialViewResult PartialCountry(int page = 1)
+        {
+            int pageSize = 3;
+            var values = context.Destinations
+                                .OrderByDescending(d => d.DestinationId)
+                                .Skip((page - 1) * pageSize)
+                                .Take(pageSize)
+                                .ToList();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = Math.Ceiling((double)context.Destinations.Count() / pageSize);
+
+            return PartialView(values);
+        }
+
+        public ActionResult DestinationDetail(int id)
+        {
+            var destination = context.Destinations.Find(id);
+            return View(destination);
+        }
+
+        [HttpGet]
+        public PartialViewResult PartialReservationModal()
+        {
             return PartialView();
         }
 
-        public PartialViewResult PartialCountry()
+        [HttpPost]
+        public PartialViewResult PartialReservationModal(Reservation reservation)
         {
-            var values = context.Destinations.ToList();
-            return PartialView(values);
+            reservation.CreatedAt = DateTime.Now;
+            context.Reservations.Add(reservation);
+            context.SaveChanges();
+
+            return PartialView();
         }
 
         public PartialViewResult PartialFooter()
