@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WoOx Travel | Admin Girişi</title>
     <link rel="stylesheet" href="/Glassmorphism-Login-Form/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -18,14 +19,31 @@
             <h2>WoOx Travel Admin Girişi</h2>
             <div class="input-field">
                 <input type="text" name="Username" required>
-                <label>Kullanıcı Adınızı Yazınız...</label>
+                <label>Kullanıcı Adı</label>
             </div>
             <div class="input-field">
                 <input type="password" name="Password" required>
-                <label>Şifrenizi Yazınız...</label>
+                <label>Şifre</label>
             </div>
             <button type="submit">Giriş Yap</button>
         </form>
     </div>
+
+    <script>
+        @if (ViewBag.AlertType == "error")
+        {
+            <text>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hata!',
+                    text: '@ViewBag.AlertMessage',
+                    position: 'top-end', // Sağ üst köşe
+                    showConfirmButton: true,
+                    timer: 5000, // 3 saniye sonra otomatik kapanır
+                    toast: true, // Toast stili
+                });
+            </text>
+        }
+    </script>
 </body>
 </html>

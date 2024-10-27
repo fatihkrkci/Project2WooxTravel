@@ -1,5 +1,6 @@
 ﻿using Project2WooxTravel.Context;
 using Project2WooxTravel.Entities;
+using PagedList; // PagedList kullanımı için gerekli
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,22 +13,30 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
     {
         TravelContext context = new TravelContext();
 
-        public ActionResult Inbox()
+        public ActionResult Inbox(int? page)
         {
             var username = Session["user"];
             var email = context.Admins.Where(x => x.Username == username).Select(y => y.Email).FirstOrDefault();
             var incomingEmails = context.Messages.Where(x => x.ReceiverMail == email).ToList();
 
-            return View(incomingEmails);
+            // Sayfalama
+            int pageSize = 5; // Her sayfada gösterilecek mesaj sayısı
+            int pageNumber = (page ?? 1); // Sayfa numarasını al, varsayılan 1
+
+            return View(incomingEmails.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(int? page)
         {
             var username = Session["user"];
             var email = context.Admins.Where(x => x.Username == username).Select(y => y.Email).FirstOrDefault();
             var sentEmails = context.Messages.Where(x => x.SenderMail == email).ToList();
 
-            return View(sentEmails);
+            // Sayfalama
+            int pageSize = 5; // Her sayfada gösterilecek mesaj sayısı
+            int pageNumber = (page ?? 1); // Sayfa numarasını al, varsayılan 1
+
+            return View(sentEmails.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult SendMessage()
@@ -48,6 +57,23 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
             context.SaveChanges();
 
             return RedirectToAction("SendBox", "Message", new { area = "Admin" });
+        }
+
+        public JsonResult GetMessageDetail(int id)
+        {
+            var message = context.Messages.Find(id);
+            if (message != null)
+            {
+                return Json(new
+                {
+                    senderMail = message.SenderMail,
+                    receiverMail = message.ReceiverMail,
+                    subject = message.Subject,
+                    sendDate = message.SendDate.ToString("dd.MM.yyyy HH:mm"),
+                    content = message.Content // Mesaj içeriği
+                }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(null);
         }
     }
 }

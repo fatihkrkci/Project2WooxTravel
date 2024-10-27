@@ -1,11 +1,10 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
-<div class="row" style="margin-top:100px; --bs-gutter-x:0 !important">
-    <div class="col-sm-6 col-md-3 p-3">
+<div class="d-flex flex-wrap justify-content-center align-items-center" style="padding-top: 100px; min-height: calc(100vh - 51.8px); --bs-gutter-x: 0 !important;">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-primary card-round">
             <div class="card-body">
                 <div class="row">
@@ -16,7 +15,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">Admin Sayısı</p>
+                            <p class="card-category">Sistemdeki Toplam Admin Sayısı</p>
                             <h4 class="card-title">@ViewBag.AdminCount</h4>
                         </div>
                     </div>
@@ -24,7 +23,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-info card-round">
             <div class="card-body">
                 <div class="row">
@@ -35,7 +34,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">Kategori Sayısı</p>
+                            <p class="card-category">Sistemdeki Toplam Kategori Sayısı</p>
                             <h4 class="card-title">@ViewBag.CategoryCount</h4>
                         </div>
                     </div>
@@ -43,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-success card-round">
             <div class="card-body">
                 <div class="row">
@@ -54,7 +53,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">Destinasyon Sayısı</p>
+                            <p class="card-category">Sistemdeki Toplam Destinasyon Sayısı</p>
                             <h4 class="card-title">@ViewBag.DestinationCount</h4>
                         </div>
                     </div>
@@ -62,7 +61,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-secondary card-round">
             <div class="card-body">
                 <div class="row">
@@ -73,7 +72,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">Mesaj Sayısı</p>
+                            <p class="card-category">Sistemdeki Toplam Mesaj Sayısı</p>
                             <h4 class="card-title">@ViewBag.MessageCount</h4>
                         </div>
                     </div>
@@ -81,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-secondary card-round">
             <div class="card-body">
                 <div class="row">
@@ -92,7 +91,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">Rezervasyon Sayısı</p>
+                            <p class="card-category">Sistemdeki Toplam Rezervasyon Sayısı</p>
                             <h4 class="card-title">@ViewBag.ReservationCount</h4>
                         </div>
                     </div>
@@ -100,7 +99,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-round">
             <div class="card-body">
                 <div class="row">
@@ -111,7 +110,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">Yurt İçi Rotalar</p>
+                            <p class="card-category">Yurt İçi Rotaların Sayısı</p>
                             <h4 class="card-title">@ViewBag.InTurkeyDestinationCount</h4>
                         </div>
                     </div>
@@ -119,7 +118,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-round">
             <div class="card-body">
                 <div class="row">
@@ -130,7 +129,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">Yurt Dışı Rotalar</p>
+                            <p class="card-category">Yurt Dışı Rotaların Sayısı</p>
                             <h4 class="card-title">@ViewBag.InternationalDestinationCount</h4>
                         </div>
                     </div>
@@ -138,7 +137,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-round">
             <div class="card-body">
                 <div class="row">
@@ -149,7 +148,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">5 Günden Uzun</p>
+                            <p class="card-category">5 Günden Uzun Rotaların Sayısı</p>
                             <h4 class="card-title">@ViewBag.MoreThan5DaysDestinationCount</h4>
                         </div>
                     </div>
@@ -157,7 +156,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-round">
             <div class="card-body">
                 <div class="row">
@@ -168,7 +167,7 @@
                     </div>
                     <div class="col-7 col-stats">
                         <div class="numbers">
-                            <p class="card-category">5 Günden Kısa</p>
+                            <p class="card-category">5 Günden Kısa Rotaların Sayısı</p>
                             <h4 class="card-title">@ViewBag.LessThan5DaysDestinationCount</h4>
                         </div>
                     </div>
@@ -176,7 +175,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-round">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -187,7 +186,7 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                            <p class="card-category">Teşekkür Mesajları</p>
+                            <p class="card-category">Teşekkür Konulu Mesajların Sayısı</p>
                             <h4 class="card-title">@ViewBag.SubjectThanksMessageCount</h4>
                         </div>
                     </div>
@@ -195,7 +194,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-round">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -206,7 +205,7 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                            <p class="card-category">Şikayet Mesajları</p>
+                            <p class="card-category">Şikayet Konulu Mesajların Sayısı</p>
                             <h4 class="card-title">@ViewBag.SubjectComplaintMessageCount</h4>
                         </div>
                     </div>
@@ -214,7 +213,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-md-3 p-3">
+    <div class="col-sm-6 col-md-3 px-3 py-1">
         <div class="card card-stats card-round">
             <div class="card-body">
                 <div class="row align-items-center">
@@ -225,7 +224,7 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                         <div class="numbers">
-                            <p class="card-category">2 Kişilik Rezervasyonlar</p>
+                            <p class="card-category">2 Kişilik Rezervasyonların Sayısı</p>
                             <h4 class="card-title">@ViewBag.People2ReservationCount</h4>
                         </div>
                     </div>

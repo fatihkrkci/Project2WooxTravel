@@ -1,9 +1,6 @@
 ﻿using Project2WooxTravel.Context;
 using Project2WooxTravel.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -27,10 +24,15 @@ namespace Project2WooxTravel.Controllers
             {
                 FormsAuthentication.SetAuthCookie(values.Username, false);
                 Session["user"] = values.Username;
+
+                // Başarılı giriş için herhangi bir bildirim yok
                 return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
             else
             {
+                // Hatalı giriş için bir flag
+                ViewBag.AlertType = "error";
+                ViewBag.AlertMessage = "Giriş bilgileri hatalı. Tekrar deneyin.";
                 return View();
             }
         }
