@@ -172,6 +172,10 @@
     <Compile Include="Migrations\202410261646565_mig6.designer.cs">
       <DependentUpon>202410261646565_mig6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410271217038_mig7.cs" />
+    <Compile Include="Migrations\202410271217038_mig7.designer.cs">
+      <DependentUpon>202410271217038_mig7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -697,6 +701,8 @@
     <Content Include="Areas\Admin\Views\Message\Inbox.cshtml" />
     <Content Include="Areas\Admin\Views\Message\Sendbox.cshtml" />
     <Content Include="Areas\Admin\Views\Message\SendMessage.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLayout\PartialMessageNavbar.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLayout\PartialDestinationNavbar.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -796,6 +802,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410261646565_mig6.resx">
       <DependentUpon>202410261646565_mig6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410271217038_mig7.resx">
+      <DependentUpon>202410271217038_mig7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

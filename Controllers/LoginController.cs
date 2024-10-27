@@ -34,5 +34,13 @@ namespace Project2WooxTravel.Controllers
                 return View();
             }
         }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

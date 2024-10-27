@@ -1,6 +1,5 @@
 ﻿@model Project2WooxTravel.Entities.Reservation
 
-<!-- ***** Preloader Start ***** -->
 <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
         <span class="dot"></span>
@@ -11,18 +10,14 @@
         </div>
     </div>
 </div>
-<!-- ***** Preloader End ***** -->
 <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
                     <a href="/Default/Index/" class="logo">
                         <img src="/wooxtravel-1.0.0/assets/images/logo.png" alt="">
                     </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="/Default/Index/" class="active">Ana Sayfa</a></li>
                         <li>
@@ -35,7 +30,6 @@
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
-                    <!-- ***** Menu End ***** -->
                 </nav>
             </div>
         </div>
@@ -68,7 +62,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label" style="color: black">Telefon Numarası</label>
-                                <input type="text" class="form-control" name="Phone"id="phoneInput" required>
+                                <input type="text" class="form-control" name="Phone" id="phoneInput" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -105,7 +99,6 @@
 </div>
 
 
-<!-- Cleave.js Telefon Maskesi Ayarı -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         new Cleave('#phoneInput', {
@@ -122,10 +115,9 @@
         const reservationForm = document.querySelector('form[action="/Default/ReservationModal/"]');
 
         reservationForm.addEventListener("submit", function (event) {
-            event.preventDefault(); // Formun varsayılan davranışını engelle
+            event.preventDefault();
             const formData = new FormData(reservationForm);
 
-            // AJAX ile form verilerini gönderme
             fetch(reservationForm.action, {
                 method: "POST",
                 body: formData
@@ -133,18 +125,15 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // SweetAlert ile başarılı mesajı göster
                         Swal.fire({
                             title: 'Başarılı!',
                             text: data.message,
                             icon: 'success',
                             confirmButtonText: 'Tamam'
                         }).then(() => {
-                            // Başarılıysa sayfayı yönlendir
-                            window.location.href = '/Default/Index'; // yönlendirmek istediğiniz sayfa
+                            window.location.href = '/Default/Index';
                         });
                     } else {
-                        // SweetAlert ile hata mesajı göster
                         Swal.fire({
                             title: 'Hata!',
                             text: data.message,
@@ -154,7 +143,6 @@
                     }
                 })
                 .catch(error => {
-                    // AJAX hatası durumunda SweetAlert göster
                     Swal.fire({
                         title: 'Hata!',
                         text: 'Bir hata oluştu. Lütfen tekrar deneyin.',

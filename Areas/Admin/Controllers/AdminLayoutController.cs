@@ -29,10 +29,28 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
         public PartialViewResult PartialNavbar()
         {
             var username = Session["user"];
+            var value = context.Admins.Where(x => x.Username == username).FirstOrDefault();
+
+            return PartialView(value);
+        }
+
+        public PartialViewResult PartialMessageNavbar()
+        {
+            var username = Session["user"];
             var email = context.Admins.Where(x => x.Username == username).Select(y => y.Email).FirstOrDefault();
             var incomingEmails = context.Messages.Where(x => x.ReceiverMail == email).ToList();
+            var incomingEmailsCount = context.Messages.Where(x => x.ReceiverMail == email).Count();
+
+            ViewBag.MessageCount = incomingEmailsCount;
 
             return PartialView(incomingEmails);
+        }
+
+        public PartialViewResult PartialDestinationNavbar()
+        {
+            var last4Destination = context.Destinations.OrderByDescending(d => d.DestinationId).Take(4).ToList();
+            
+            return PartialView(last4Destination);
         }
 
         public PartialViewResult PartialFooter()
