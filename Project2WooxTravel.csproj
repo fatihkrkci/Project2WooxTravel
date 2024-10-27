@@ -196,6 +196,8 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Glassmorphism-Login-Form\index.html" />
+    <Content Include="Glassmorphism-Login-Form\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="kaiadmin-lite-1.2.0\assets\css\bootstrap.min.css" />
@@ -741,7 +743,6 @@
     <Content Include="Views\Default\PartialCountry.cshtml" />
     <Content Include="Views\Default\PartialFooter.cshtml" />
     <Content Include="Views\Default\DestinationDetail.cshtml" />
-    <Content Include="Views\Default\PartialReservationModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

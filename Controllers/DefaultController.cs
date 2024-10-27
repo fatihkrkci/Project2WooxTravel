@@ -60,19 +60,26 @@ namespace Project2WooxTravel.Controllers
         }
 
         [HttpGet]
-        public PartialViewResult PartialReservationModal()
+        public ActionResult ReservationModal()
         {
             return PartialView();
         }
 
         [HttpPost]
-        public PartialViewResult PartialReservationModal(Reservation reservation)
+        public ActionResult ReservationModal(Reservation reservation)
         {
-            reservation.CreatedAt = DateTime.Now;
-            context.Reservations.Add(reservation);
-            context.SaveChanges();
+            try
+            {
+                reservation.CreatedAt = DateTime.Now;
+                context.Reservations.Add(reservation);
+                context.SaveChanges();
 
-            return PartialView();
+                return Json(new { success = true, message = "Rezervasyonunuz başarıyla oluşturuldu." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Rezervasyon oluşturulurken bir hata oluştu." });
+            }
         }
 
         public PartialViewResult PartialFooter()
