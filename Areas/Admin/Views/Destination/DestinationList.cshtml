@@ -1,4 +1,5 @@
-﻿@model List<Project2WooxTravel.Entities.Destination>
+﻿@using PagedList
+@model IPagedList<Project2WooxTravel.Entities.Destination>
 
 @{
     ViewBag.Title = "DestinationList";
@@ -14,7 +15,7 @@
                         <div class="card-title">Destinasyon İşlemleri</div>
                     </div>
                     <div class="card-body">
-                        <a href="/Admin/Destination/CreateDestination/" class="btn btn-primary">Yeni Destinasyon Girişi</a>
+                        <a href="@Url.Action("CreateDestination", "Destination")" class="btn btn-primary">Yeni Destinasyon Girişi</a>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
@@ -23,6 +24,7 @@
                                     <th scope="col">Şehir</th>
                                     <th scope="col">Gün/Gece</th>
                                     <th scope="col">Fiyat</th>
+                                    <th scope="col">Kapasite</th>
                                     <th scope="col">İşlemler</th>
                                 </tr>
                             </thead>
@@ -35,15 +37,26 @@
                                         <td>@item.City</td>
                                         <td>@item.DayNight</td>
                                         <td>@item.Price</td>
+                                        <td>@item.Capacity</td>
                                         <td>
                                             <a href="#" class="btn btn-secondary">Sitede Gör</a>
-                                            <a href="/Admin/Destination/UpdateDestination/@item.DestinationId" class="btn btn-warning">Güncelle</a>
-                                            <a href="/Admin/Destination/DeleteDestination/@item.DestinationId" class="btn btn-danger">Sil</a>
+                                            <a href="@Url.Action("UpdateDestination", "Destination", new { id = item.DestinationId })" class="btn btn-warning">Güncelle</a>
+                                            <a href="@Url.Action("DeleteDestination", "Destination", new { id = item.DestinationId })" class="btn btn-danger">Sil</a>
                                         </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
+
+                        @if (Model.PageCount > 1)
+                        {
+                            <div class="pagination">
+                                @for (int i = 1; i <= Model.PageCount; i++)
+                                {
+                                    <a href="@Url.Action("DestinationList", new { page = i })" class="btn btn-link @(Model.PageNumber == i ? "active" : "")">@i</a>
+                                }
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

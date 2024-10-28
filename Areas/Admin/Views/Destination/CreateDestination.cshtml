@@ -15,23 +15,34 @@
                     </div>
                     <div class="card-body">
                         <form method="post">
-                            <label>Ülke Adı</label>
-                            @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
-                            <br />
-                            <label>Şehir Adı</label>
-                            @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
-                            <br />
-                            <label>Tur Başlığı</label>
-                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
-                            <br />
-                            <label>Gün/Gece</label>
-                            @Html.TextBoxFor(x => x.DayNight, new { @class = "form-control" })
-                            <br />
-                            <label>Kapak Görseli URL</label>
-                            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
-                            <br />
-                            <label>Tur Fiyatı</label>
-                            @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Ülke Adı</label>
+                                    @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Şehir Adı</label>
+                                    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Tur Başlığı</label>
+                                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Gün/Gece</label>
+                                    @Html.TextBoxFor(x => x.DayNight, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Kapak Görseli URL</label>
+                                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Tur Fiyatı</label>
+                                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <label>Kapasite</label>
+                            @Html.TextBoxFor(x => x.Capacity, new { @class = "form-control" })
                             <br />
                             <label>Açıklama</label>
                             @Html.TextAreaFor(x => x.Description, 5, 0, new { @class = "form-control" })

@@ -1,4 +1,5 @@
-﻿using Project2WooxTravel.Context;
+﻿using PagedList;
+using Project2WooxTravel.Context;
 using Project2WooxTravel.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,17 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
     {
         TravelContext context = new TravelContext();
 
-        public ActionResult DestinationList()
+        public ActionResult DestinationList(int page = 1)
         {
-            var values = context.Destinations.ToList();
-            return View(values);
+            // Tüm destinasyonları al ve sıralama ekle (örneğin DestinationId'ye göre)
+            var values = context.Destinations
+                .OrderBy(d => d.DestinationId); // Sıralama ekleniyor
+
+            // Sayfalama: her sayfada 5 veri olacak şekilde
+            int pageSize = 5;
+            var pagedDestinations = values.ToPagedList(page, pageSize);
+
+            return View(pagedDestinations);
         }
 
         public ActionResult CreateDestination()
@@ -27,6 +35,8 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CreateDestination(Destination destination)
         {
+            destination.CreatedAt = DateTime.Now;
+            destination.Status = true;
             context.Destinations.Add(destination);
             context.SaveChanges();
             return RedirectToAction("DestinationList", "Destination", "Admin");
