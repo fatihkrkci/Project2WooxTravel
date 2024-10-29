@@ -39,7 +39,7 @@
                                         <td>@item.Price</td>
                                         <td>@item.Capacity</td>
                                         <td>
-                                            <a href="#" class="btn btn-secondary">Sitede Gör</a>
+                                            <a href="/Default/DestinationDetail/@item.DestinationId" class="btn btn-secondary">Sitede Gör</a>
                                             <a href="@Url.Action("UpdateDestination", "Destination", new { id = item.DestinationId })" class="btn btn-warning">Güncelle</a>
                                             <a href="@Url.Action("DeleteDestination", "Destination", new { id = item.DestinationId })" class="btn btn-danger">Sil</a>
                                         </td>
