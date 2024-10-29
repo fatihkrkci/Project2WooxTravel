@@ -17,6 +17,8 @@ Bu proje M&Y Yazılım Eğitim Akademi Danışmanlık bünyesinde Murat Yüceda�
 <br>
 ✅ HTML-CSS-Bootstrap
 <br>
+✅ Session
+<br>
 ✅ Chart JS ile Line/Bar/Pie/Doughnut Grafikleri
 <br>
 ✅ JS
@@ -31,9 +33,11 @@ Bu proje M&Y Yazılım Eğitim Akademi Danışmanlık bünyesinde Murat Yüceda�
 <br>
 ✅ Login/Logout İşlemleri
 <br>
-✅ Pop-Up (Modal) Kullanımı
+✅ Modal & Pop-Up
 <br>
 ✅ Admin Paneli Üzerinden Mesajlaşabilme
+<br>
+✅ Widgets
 <br><br>
 
 
