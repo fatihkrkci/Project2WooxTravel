@@ -43,7 +43,7 @@ Bu proje M&Y Yazılım Eğitim Akademi Danışmanlık bünyesinde Murat Yüceda�
 # Kullanıcı Arayüzü
 ![anasayfa_tamami](https://github.com/user-attachments/assets/41b2d274-5ffc-4d25-96cd-ab1eeebfbfb4)
 ![tur_detay_sayfasi](https://github.com/user-attachments/assets/667ed385-067f-4eb8-9aaf-ce95c894cb06)
-![rezervasyon-popup](https://github.com/user-attachments/assets/49c31049-23e2-46c9-a5be-9508b8dccfec)
+![Screenshot_255](https://github.com/user-attachments/assets/b9cbd107-a5cb-433a-875f-6e1cefa78556)
 ![rezervasyon_success_sweetalert](https://github.com/user-attachments/assets/8d9e015d-cc21-4903-98bf-3471bc1201c6)
 
 
