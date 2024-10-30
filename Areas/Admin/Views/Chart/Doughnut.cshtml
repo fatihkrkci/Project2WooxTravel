@@ -27,17 +27,16 @@
     </div>
 
     <script>
-        // Chart.js için veri hazırlama
         var ctx = document.getElementById("doughnutChart").getContext("2d");
         var myDoughnutChart = new Chart(ctx, {
             type: "doughnut",
             data: {
-                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationTitles)), // Başlıklar
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationTitles)),
                 datasets: [{
                     label: "Ücretler",
-                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationPrices)), // Ücretler
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationPrices)),
                     backgroundColor: [
-                        "#FF6384", // Renkler
+                        "#FF6384",
                         "#36A2EB",
                         "#FFCE56",
                         "#4BC0C0",

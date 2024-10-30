@@ -21,7 +21,6 @@
     </div>
 
     <script>
-        // Chart.js için veri hazırlama
         var ctx = document.getElementById("lineChart").getContext("2d");
         var myLineChart = new Chart(ctx, {
             type: "line",
@@ -49,7 +48,7 @@
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            stepSize: 1 // Y ekseninde birer birer artmasını sağlar
+                            stepSize: 1
                         }
                     }
                 },

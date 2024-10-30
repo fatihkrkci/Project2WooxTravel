@@ -25,12 +25,10 @@ namespace Project2WooxTravel.Controllers
                 FormsAuthentication.SetAuthCookie(values.Username, false);
                 Session["user"] = values.Username;
 
-                // Başarılı giriş için herhangi bir bildirim yok
                 return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
             }
             else
             {
-                // Hatalı giriş için bir flag
                 ViewBag.AlertType = "error";
                 ViewBag.AlertMessage = "Giriş bilgileri hatalı. Tekrar deneyin.";
                 return View();

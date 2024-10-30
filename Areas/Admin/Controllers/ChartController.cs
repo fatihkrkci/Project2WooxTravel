@@ -13,14 +13,12 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
 
         public ActionResult Line()
         {
-            // Benzersiz konu başlıklarını al ve her başlığa karşılık gelen mesaj sayısını hesapla
             var messageSubjects = context.Messages.Select(m => m.Subject).Distinct().ToList();
             var messageCounts = context.Messages
                                         .GroupBy(m => m.Subject)
-                                        .Select(g => g.Count()) // Her grubun (konunun) toplam mesaj sayısını al
+                                        .Select(g => g.Count())
                                         .ToList();
 
-            // Verilerin dolu olup olmadığını kontrol et
             if (messageSubjects == null || messageSubjects.Count == 0)
             {
                 Console.WriteLine("MessageSubjects boş.");
@@ -38,32 +36,28 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
 
         public ActionResult Bar()
         {
-            // İçinde bulunduğumuz ayı al
             var currentMonth = DateTime.Now.Month;
             var currentYear = DateTime.Now.Year;
 
-            // İçinde bulunduğumuz ay içerisindeki rezervasyonları al
             var reservations = context.Reservations
                 .Where(r => r.ReservationStartDate.Month == currentMonth && r.ReservationStartDate.Year == currentYear)
                 .ToList();
 
-            // Günlere göre toplam kişi sayısını hesapla
             var personCounts = new int[DateTime.DaysInMonth(currentYear, currentMonth)];
 
             foreach (var reservation in reservations)
             {
                 var day = reservation.ReservationStartDate.Day;
-                personCounts[day - 1] += reservation.PersonCount; // Günler 1'den başladığı için 1 çıkarıyoruz
+                personCounts[day - 1] += reservation.PersonCount;
             }
 
             ViewBag.PersonCounts = personCounts;
-            ViewBag.Days = Enumerable.Range(1, personCounts.Length).ToList(); // 1'den gün sayısına kadar bir liste oluştur
+            ViewBag.Days = Enumerable.Range(1, personCounts.Length).ToList();
             return View();
         }
 
         public ActionResult Pie()
         {
-            // Destinations tablosundaki başlıkları ve kapasiteleri al
             var destinations = context.Destinations
                 .Select(d => new
                 {
@@ -72,7 +66,6 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
                 })
                 .ToList();
 
-            // Başlıklar ve kapasiteleri ViewBag'de saklayalım
             ViewBag.DestinationTitles = destinations.Select(d => d.Title).ToList();
             ViewBag.DestinationCapacities = destinations.Select(d => d.Capacity).ToList();
 
@@ -81,7 +74,6 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
 
         public ActionResult Doughnut()
         {
-            // Destinations tablosundaki başlıkları ve fiyatları al
             var destinations = context.Destinations
                 .Select(d => new
                 {
@@ -90,7 +82,6 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
                 })
                 .ToList();
 
-            // Başlıklar ve fiyatları ViewBag'de saklayalım
             ViewBag.DestinationTitles = destinations.Select(d => d.Title).ToList();
             ViewBag.DestinationPrices = destinations.Select(d => d.Price).ToList();
 

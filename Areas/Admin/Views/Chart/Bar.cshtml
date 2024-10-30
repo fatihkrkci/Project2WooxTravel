@@ -22,15 +22,14 @@
     </div>
 
     <script>
-        // Chart.js için veri hazırlama
         var ctx = document.getElementById("barChart").getContext("2d");
         var myBarChart = new Chart(ctx, {
             type: "bar",
             data: {
-                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Days)), // Günler
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Days)),
                 datasets: [{
                     label: "Kişi Sayısı",
-                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PersonCounts)), // Günlere göre kişi sayıları
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.PersonCounts)),
                     backgroundColor: "rgba(29, 122, 243, 0.5)",
                     borderColor: "#1d7af3",
                     borderWidth: 1
@@ -42,7 +41,7 @@
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            stepSize: 1 // Y ekseninde birer birer artmasını sağlar
+                            stepSize: 1
                         }
                     }
                 },

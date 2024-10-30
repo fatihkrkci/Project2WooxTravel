@@ -21,17 +21,16 @@
     </div>
 
     <script>
-        // Chart.js için veri hazırlama
         var ctx = document.getElementById("pieChart").getContext("2d");
         var myPieChart = new Chart(ctx, {
             type: "pie",
             data: {
-                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationTitles)), // Başlıklar
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationTitles)),
                 datasets: [{
                     label: "Kapasiteler",
-                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationCapacities)), // Kapasiteler
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.DestinationCapacities)),
                     backgroundColor: [
-                        "#FF6384", // Renkler
+                        "#FF6384",
                         "#36A2EB",
                         "#FFCE56",
                         "#4BC0C0",

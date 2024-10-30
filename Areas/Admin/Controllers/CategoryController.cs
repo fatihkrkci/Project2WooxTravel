@@ -1,5 +1,5 @@
 ﻿using Project2WooxTravel.Context;
-using PagedList; // PagedList kütüphanesini ekleyin
+using PagedList;
 using System.Linq;
 using System.Web.Mvc;
 using Project2WooxTravel.Entities;
@@ -13,12 +13,10 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
         [Authorize]
         public ActionResult CategoryList(int page = 1)
         {
-            // CategoryStatus == true olan kategorileri al ve sıralama ekle
             var values = context.Categories
                 .Where(c => c.CategoryStatus == true)
-                .OrderBy(c => c.CategoryId); // Sıralama ekleniyor
+                .OrderBy(c => c.CategoryId);
 
-            // Sayfalama: her sayfada 5 veri olacak şekilde
             int pageSize = 5;
             var pagedCategories = values.ToPagedList(page, pageSize);
 

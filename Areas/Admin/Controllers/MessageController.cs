@@ -1,6 +1,6 @@
 ﻿using Project2WooxTravel.Context;
 using Project2WooxTravel.Entities;
-using PagedList; // PagedList kullanımı için gerekli
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +19,8 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
             var email = context.Admins.Where(x => x.Username == username).Select(y => y.Email).FirstOrDefault();
             var incomingEmails = context.Messages.Where(x => x.ReceiverMail == email).ToList();
 
-            // Sayfalama
-            int pageSize = 5; // Her sayfada gösterilecek mesaj sayısı
-            int pageNumber = (page ?? 1); // Sayfa numarasını al, varsayılan 1
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
 
             return View(incomingEmails.ToPagedList(pageNumber, pageSize));
         }
@@ -32,9 +31,8 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
             var email = context.Admins.Where(x => x.Username == username).Select(y => y.Email).FirstOrDefault();
             var sentEmails = context.Messages.Where(x => x.SenderMail == email).ToList();
 
-            // Sayfalama
-            int pageSize = 5; // Her sayfada gösterilecek mesaj sayısı
-            int pageNumber = (page ?? 1); // Sayfa numarasını al, varsayılan 1
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
 
             return View(sentEmails.ToPagedList(pageNumber, pageSize));
         }
@@ -70,7 +68,7 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
                     receiverMail = message.ReceiverMail,
                     subject = message.Subject,
                     sendDate = message.SendDate.ToString("dd.MM.yyyy HH:mm"),
-                    content = message.Content // Mesaj içeriği
+                    content = message.Content
                 }, JsonRequestBehavior.AllowGet);
             }
             return Json(null);

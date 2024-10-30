@@ -16,11 +16,9 @@ namespace Project2WooxTravel.Areas.Admin.Controllers
 
         public ActionResult DestinationList(int page = 1)
         {
-            // Tüm destinasyonları al ve sıralama ekle (örneğin DestinationId'ye göre)
             var values = context.Destinations
-                .OrderBy(d => d.DestinationId); // Sıralama ekleniyor
+                .OrderBy(d => d.DestinationId);
 
-            // Sayfalama: her sayfada 5 veri olacak şekilde
             int pageSize = 5;
             var pagedDestinations = values.ToPagedList(page, pageSize);
 
