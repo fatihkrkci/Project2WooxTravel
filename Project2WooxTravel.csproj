@@ -194,6 +194,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="colorlib-error-404-10\css\style.css" />
+    <Content Include="colorlib-error-404-10\img\bg.jpg" />
+    <Content Include="colorlib-error-404-10\index.html" />
+    <Content Include="colorlib-error-404-10\readme.txt" />
     <Content Include="colorlib-error-404-6\css\style.css" />
     <Content Include="colorlib-error-404-6\index.html" />
     <Content Include="colorlib-error-404-6\readme.txt" />
